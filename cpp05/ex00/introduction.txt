@@ -1,0 +1,94 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    introduction.txt                                   :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/02/10 15:12:35 by fgras-ca          #+#    #+#              #
+#    Updated: 2024/02/11 12:30:48 by fgras-ca         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+** Chapitre I
+** Introduction
+** Le C++ est un langage de programmation polyvalent créé par Bjarne Stroustrup
+** comme une extension du langage de programmation C, ou "C avec Classes"
+** (source : Wikipedia).
+** L'objectif de ces modules est de vous introduire à la Programmation Orientée Objet.
+** Ce sera le point de départ de votre voyage en C++. De nombreux langages sont recommandés
+** pour apprendre la POO. Nous avons décidé de choisir le C++ puisqu'il est dérivé
+** de votre vieux ami le C.
+** Comme il s'agit d'un langage complexe, et afin de garder les choses simples,
+** votre code sera conforme à la norme C++98.
+** Nous sommes conscients que le C++ moderne est très différent sous de nombreux aspects.
+** Donc, si vous voulez devenir un développeur C++ compétent, c'est à vous d'aller
+** plus loin après le 42 Core Commun !
+*/
+
+** Chapitre II
+** Règles générales
+** Compilation
+** • Compilez votre code avec c++ et les drapeaux -Wall -Wextra -Werror
+** • Votre code doit encore compiler si vous ajoutez le drapeau -std=c++98
+**
+** Formatage et conventions de nommage
+** • Les répertoires d'exercices seront nommés de cette façon : ex00, ex01, ..., exn
+** • Nommez vos fichiers, classes, fonctions, fonctions membres et attributs comme
+** requis dans les directives.
+** • Écrivez les noms des classes en format UpperCamelCase. Les fichiers contenant
+** le code des classes seront toujours nommés selon le nom de la classe. Par exemple :
+** ClassName.hpp/ClassName.h, ClassName.cpp, ou ClassName.tpp. Ainsi, si vous avez
+** un fichier d'en-tête contenant la définition d'une classe "BrickWall" représentant
+** un mur de briques, son nom sera BrickWall.hpp.
+** • Sauf indication contraire, tous les messages de sortie doivent se terminer par un
+** caractère de nouvelle ligne et être affichés sur la sortie standard.
+** • Adieu Norminette ! Aucun style de codage n'est imposé dans les modules C++.
+** Vous pouvez suivre celui que vous préférez. Mais gardez à l'esprit qu'un code que
+** vos pairs évaluateurs ne peuvent pas comprendre est un code qu'ils ne peuvent pas
+** noter. Faites de votre mieux pour écrire un code propre et lisible.
+**
+** Autorisé/Interdit
+** Vous ne codez plus en C. Il est temps de passer au C++ ! Par conséquent :
+** • Vous êtes autorisé à utiliser presque tout de la bibliothèque standard. Ainsi,
+** au lieu de vous en tenir à ce que vous connaissez déjà, il serait intelligent
+** d'utiliser autant que possible les versions C++ des fonctions C auxquelles vous
+** êtes habitué.
+** • Cependant, vous ne pouvez pas utiliser d'autres bibliothèques externes. Cela
+** signifie que les bibliothèques C++11 (et formes dérivées) et Boost sont interdites.
+** Les fonctions suivantes sont également interdites : *printf(), *alloc() et free().
+** Si vous les utilisez, votre note sera de 0 et c'est tout. Notez que, sauf mention
+** explicite du contraire, l'utilisation des mots-clés using namespace <ns_name> et
+** friend est interdite. Sinon, votre note sera de -42.
+** • Vous êtes autorisé à utiliser la STL dans les modules 08 et 09 uniquement. Cela
+** signifie : pas de Conteneurs (vector/list/map/etc.) et pas d'Algorithmes (tout ce
+** qui nécessite d'inclure l'en-tête <algorithm>) jusqu'à ce moment. Sinon, votre
+** note sera de -42.
+**
+** Quelques exigences de conception
+** • Les fuites de mémoire se produisent aussi en C++. Lorsque vous allouez de la
+** mémoire (en utilisant le mot-clé new), vous devez éviter les fuites de mémoire.
+** • Du module 02 au module 09, vos classes doivent être conçues selon la Forme
+** Canonique Orthodoxe, sauf indication contraire explicite.
+** • Toute implémentation de fonction mise dans un fichier d'en-tête (sauf pour les
+** modèles de fonction) signifie 0 pour l'exercice.
+** • Vous devriez être capable d'utiliser chacun de vos en-têtes indépendamment des
+** autres. Ainsi, ils doivent inclure toutes les dépendances dont ils ont besoin.
+** Cependant, vous devez éviter le problème de double inclusion en ajoutant des
+** gardes d'inclusion. Sinon, votre note sera de 0.
+**
+** Lisez-moi
+** • Vous pouvez ajouter des fichiers supplémentaires si vous en avez besoin (c'est-à-dire,
+** pour diviser votre code). Comme ces devoirs ne sont pas vérifiés par un programme,
+** n'hésitez pas à le faire tant que vous remettez les fichiers obligatoires.
+** • Parfois, les directives d'un exercice semblent courtes mais les exemples peuvent
+** montrer des exigences qui ne sont pas explicitement écrites dans les instructions.
+** • Lisez chaque module complètement avant de commencer ! Vraiment, faites-le.
+** • Par Odin, par Thor ! Utilisez votre cerveau !!!
+** Vous devrez implémenter beaucoup de classes. Cela peut sembler fastidieux,
+** à moins que vous ne soyez capable de scripter votre éditeur de texte préféré.
+** Une certaine liberté vous est donnée pour compléter les exercices.
+** Cependant, suivez les règles obligatoires et ne soyez pas paresseux. Vous
+** manqueriez beaucoup d'informations utiles ! N'hésitez pas à lire sur les
+** concepts théoriques.
+*/
