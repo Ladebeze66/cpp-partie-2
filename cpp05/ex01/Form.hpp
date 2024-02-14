@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 14:37:14 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/11 18:03:35 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/12 14:43:02 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 class Bureaucrat;
 
-class AForm
+class Form
 {
 private:
 	const std::string name;
@@ -30,14 +30,14 @@ private:
 
 public:
 	//constructueur
-	AForm(const::std::string& name);
-	AForm(const std::string &name, int gradeRequiredToSign, int gradeRequiredToExecute);
+	Form(const::std::string& name);
+	Form(const std::string &name, int gradeRequiredToSign, int gradeRequiredToExecute);
 	// Constructeur par copie
-    AForm(const AForm& other);
+    Form(const Form& other);
 	// Opérateur d'affectation
-    AForm& operator=(const AForm& other);
+    Form& operator=(const Form& other);
 	// Destructeur
-    ~AForm();
+    ~Form();
 
 
 	std::string getName() const;
@@ -67,6 +67,6 @@ public:
 };
 
 // Surcharge de l'opérateur d'insertion
-std::ostream& operator<<(std::ostream& os, const AForm& form);
+std::ostream& operator<<(std::ostream& os, const Form& form);
 
 #endif
