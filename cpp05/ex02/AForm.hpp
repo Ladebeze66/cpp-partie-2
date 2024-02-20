@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 14:37:14 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/11 15:05:06 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/16 18:50:37 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include "Bureaucrat.hpp" // Assurez-vous que cette classe est bien définie
 #include <string>
@@ -19,7 +19,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 private:
 	const std::string name;
@@ -28,33 +28,38 @@ private:
 	const int gradeRequiredToExecute;
 
 public:
-	Form(const std::string &name, int gradeRequiredToSign, int gradeRequiredToExecute);
+	//constructueur
+	AForm();
+	AForm(const std::string &name, int gradeRequiredToSign, int gradeRequiredToExecute);
+	// Constructeur par copie
+    AForm(const AForm& other);
+	// Opérateur d'affectation
+    virtual AForm& operator=(const AForm& other);
+	// Destructeur
+    virtual ~AForm();
+
+
 	std::string getName() const;
 	bool getIsSigned() const;
 	int getGradeRequiredToSign() const;
 	int getGradeRequiredToExecute() const;
 
-	void beSigned(const Bureaucrat& bureaucrat);
+	virtual void beSigned(const Bureaucrat& bureaucrat);
 
 	class GradeTooHighException : public std::exception
 	{
 		public:
-		const char* what() const noexcept override
-		{
-			return ("Grade too high");
-		}
+			const char* what() const noexcept override;
 	};
 
 	class GradeTooLowException : public std::exception
 	{
 		public:
-		const char* what() const noexcept override
-		{
-			return ("Grade too low");
-		}
+			const char* what() const noexcept override;
 	};
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& form);
+// Surcharge de l'opérateur d'insertion
+std::ostream& operator<<(std::ostream& os, const AForm& aform);
 
 #endif

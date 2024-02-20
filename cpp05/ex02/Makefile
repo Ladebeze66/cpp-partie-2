@@ -6,7 +6,7 @@
 #    By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/27 20:57:42 by fgras-ca          #+#    #+#              #
-#    Updated: 2024/02/11 14:58:41 by fgras-ca         ###   ########.fr        #
+#    Updated: 2024/02/16 18:36:25 by fgras-ca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ ORANGE			= \033[38;5;214m
 NAME = Form
 
 SRC =	Bureaucrat.cpp \
-		Form.cpp \
+		AForm.cpp \
 		main.cpp \
 
 OBJS = ${SRC:.cpp=.o}

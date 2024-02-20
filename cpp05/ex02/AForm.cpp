@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 14:39:51 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/16 18:19:00 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/16 18:44:23 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form()
+AForm::AForm()
 	: name(name), isSigned(false), gradeRequiredToSign(1), gradeRequiredToExecute(1)
 {
-	std::cout << GREEN << "Form default constructor called!" << RESET << std::endl;
+	std::cout << GREEN << "AForm default constructor called!" << RESET << std::endl;
 }
 
-Form::Form(const std::string &name, int gradeRequiredToSign, int gradeRequiredToExecute)
+AForm::AForm(const std::string &name, int gradeRequiredToSign, int gradeRequiredToExecute)
 	: name(name), isSigned(false), gradeRequiredToSign(gradeRequiredToSign), gradeRequiredToExecute(gradeRequiredToExecute)
 {
 	if (gradeRequiredToSign < 1 || gradeRequiredToExecute < 1)
@@ -32,13 +32,13 @@ Form::Form(const std::string &name, int gradeRequiredToSign, int gradeRequiredTo
 	}
 }
 
-Form::Form(const Form& other)
+AForm::AForm(const AForm& other)
 	: name(other.name), isSigned(other.isSigned), gradeRequiredToSign(other.gradeRequiredToSign), gradeRequiredToExecute(other.gradeRequiredToExecute)
 {
-	std::cout << CYAN << "Copy constructor called for Form " << this->name << RESET << std::endl;
+	std::cout << CYAN << "Copy constructor called for AForm " << this->name << RESET << std::endl;
 }
 
-Form& Form::operator=(const Form& other)
+AForm& AForm::operator=(const AForm& other)
 {
 	if (this != &other)
 	{
@@ -47,32 +47,32 @@ Form& Form::operator=(const Form& other)
 	return (*this);
 }
 
-Form::~Form()
+AForm::~AForm()
 {
-	std::cout << RED << "Form " << this->name << " is destroyed!" << RESET << std::endl;
+	std::cout << RED << "AForm " << this->name << " is destroyed!" << RESET << std::endl;
 }
 
-std::string Form::getName() const
+std::string AForm::getName() const
 {
 	return (name);
 }
 
-bool Form::getIsSigned() const
+bool AForm::getIsSigned() const
 {
 	return (isSigned);
 }
 
-int Form::getGradeRequiredToSign() const
+int AForm::getGradeRequiredToSign() const
 {
 	return (gradeRequiredToSign);
 }
 
-int Form::getGradeRequiredToExecute() const
+int AForm::getGradeRequiredToExecute() const
 {
 	return (gradeRequiredToExecute);
 }
 
-void Form::beSigned(const Bureaucrat& bureaucrat)
+void AForm::beSigned(const Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() <= gradeRequiredToSign)
 	{
@@ -84,21 +84,21 @@ void Form::beSigned(const Bureaucrat& bureaucrat)
 	}
 }
 
-const char* Form::GradeTooHighException::what() const noexcept
+const char* AForm::GradeTooHighException::what() const noexcept
 {
 	return ("Grade too hight\n");
 }
 
-const char* Form::GradeTooLowException::what() const noexcept
+const char* AForm::GradeTooLowException::what() const noexcept
 {
 	return ("Grade too low\n");
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& form)
+std::ostream& operator<<(std::ostream& os, const AForm& aform)
 {
-	os << "Form: " << form.getName()
-	   << ", Status: " << (form.getIsSigned() ? "Signed" : "Not signed")
-	   << ", Grade Required to Sign: " << form.getGradeRequiredToSign()
-	   << ", Grade Required to Execute: " << form.getGradeRequiredToExecute();
+	os << "AForm: " << aform.getName()
+	   << ", Status: " << (aform.getIsSigned() ? "Signed" : "Not signed")
+	   << ", Grade Required to Sign: " << aform.getGradeRequiredToSign()
+	   << ", Grade Required to Execute: " << aform.getGradeRequiredToExecute();
 	return (os);
 }

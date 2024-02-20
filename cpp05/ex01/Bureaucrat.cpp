@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 13:16:26 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/14 14:38:10 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/16 17:30:32 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Constructeur par défaut
 Bureaucrat::Bureaucrat() : name("Default"), grade(150)
 {
-	std::cout << GREEN << "Bureaucrat default constructor called!\n" << RESET << std::endl;
+	std::cout << GREEN << "Bureaucrat default constructor called!" << RESET << std::endl;
 }
 // Constructeur avec paramètres
 Bureaucrat::Bureaucrat(const std::string& name, int grade) :name(name), grade(grade)
@@ -73,20 +73,34 @@ void Bureaucrat::incrementGrade()
 // Décrémente le grade
 void Bureaucrat::decrementGrade()
 {
-	if (grade >= 150) {
+	if (grade >= 150)
+	{
 		throw GradeTooLowException();
 	}
 	++grade;
 }
+
+void Bureaucrat::signForm(Form& form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->name << " signed " << form.getName() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << this->name << " couldn’t sign " << form.getName() << " because " << e.what() << std::endl;
+	}
+}
 // Méthodes pour les exceptions
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return "Grade too hight\n";
+	return ("Grade too hight\n");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return "Grade too low\n";
+	return ("Grade too low\n");
 }
 // Surcharge de l'opérateur <<
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
@@ -94,4 +108,3 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
 	os << bureaucrat.getName() << " bureaucrat grade " << bureaucrat.getGrade();
 	return (os);
 }
-
