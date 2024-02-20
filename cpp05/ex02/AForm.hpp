@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 14:37:14 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/16 18:50:37 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:00:31 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ public:
 	AForm();
 	AForm(const std::string &name, int gradeRequiredToSign, int gradeRequiredToExecute);
 	// Constructeur par copie
-    AForm(const AForm& other);
+	AForm(const AForm& other);
 	// Opérateur d'affectation
-    virtual AForm& operator=(const AForm& other);
+	AForm& operator=(const AForm& other);
 	// Destructeur
-    virtual ~AForm();
+	virtual ~AForm();
 
 
 	std::string getName() const;
@@ -45,6 +45,7 @@ public:
 	int getGradeRequiredToExecute() const;
 
 	virtual void beSigned(const Bureaucrat& bureaucrat);
+	virtual void execute(Bureaucrat const &executor) const = 0;
 
 	class GradeTooHighException : public std::exception
 	{

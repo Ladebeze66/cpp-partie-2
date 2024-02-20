@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 12:57:28 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/16 18:26:55 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:01:47 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ public:
 	void incrementGrade();
 	void decrementGrade();
 	void signForm(Form& form);
+	void executeForm(AForm const &form);
 
 private:
 	const std::string name;
