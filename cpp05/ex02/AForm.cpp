@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 14:39:51 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/20 16:39:29 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:25:05 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,10 @@ const char* AForm::GradeTooLowException::what() const noexcept
 	return ("Grade too low\n");
 }
 
+const char* AForm::NotSignedException::what() const noexcept
+{
+	return ("The forpm is not signed.\n");
+}
 std::ostream& operator<<(std::ostream& os, const AForm& aform)
 {
 	os << "AForm: " << aform.getName()

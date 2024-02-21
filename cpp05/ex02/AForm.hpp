@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 14:37:14 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/20 17:00:31 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/21 15:53:16 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ private:
 	const int gradeRequiredToSign;
 	const int gradeRequiredToExecute;
 
+protected:
+	std::string target;
+
 public:
 	//constructueur
 	AForm();
@@ -43,6 +46,7 @@ public:
 	bool getIsSigned() const;
 	int getGradeRequiredToSign() const;
 	int getGradeRequiredToExecute() const;
+	virtual std::string getTarget() const {return target;}
 
 	virtual void beSigned(const Bureaucrat& bureaucrat);
 	virtual void execute(Bureaucrat const &executor) const = 0;
@@ -58,8 +62,13 @@ public:
 		public:
 			const char* what() const noexcept override;
 	};
-};
 
+	class NotSignedException : public std::exception
+	{
+		public:
+			const char* what() const noexcept override;
+	};
+};
 // Surcharge de l'opérateur d'insertion
 std::ostream& operator<<(std::ostream& os, const AForm& aform);
 

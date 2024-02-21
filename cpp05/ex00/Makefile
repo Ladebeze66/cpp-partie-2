@@ -6,7 +6,7 @@
 #    By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/27 20:57:42 by fgras-ca          #+#    #+#              #
-#    Updated: 2024/02/11 13:37:27 by fgras-ca         ###   ########.fr        #
+#    Updated: 2024/02/21 17:06:51 by fgras-ca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,13 +28,15 @@ NAME = Bureaucrat
 SRC =	Bureaucrat.cpp \
 		main.cpp \
 
-OBJS = ${SRC:.cpp=.o}
-
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 RM = rm -f
+OBJS = ${SRC:.cpp=.o}
 
 all : $(NAME)
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJS)
 	@echo "$(RED)Compilation fixed... $(DEF_COLOR)"

@@ -6,7 +6,7 @@
 #    By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/27 20:57:42 by fgras-ca          #+#    #+#              #
-#    Updated: 2024/02/16 18:36:25 by fgras-ca         ###   ########.fr        #
+#    Updated: 2024/02/21 13:06:08 by fgras-ca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,9 @@ NAME = Form
 SRC =	Bureaucrat.cpp \
 		AForm.cpp \
 		main.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp \
 
 OBJS = ${SRC:.cpp=.o}
 

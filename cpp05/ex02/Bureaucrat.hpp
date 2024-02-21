@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 12:57:28 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/20 17:01:47 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:09:39 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 #define MAGENTA  "\033[35m"
 #define CYAN     "\033[36m"
 #define WHITE    "\033[37m"
+
+class AForm;
 
 class Bureaucrat
 {
@@ -53,7 +55,7 @@ public:
 	int getGrade() const;
 	void incrementGrade();
 	void decrementGrade();
-	void signForm(Form& form);
+	void signForm(AForm& form);
 	void executeForm(AForm const &form);
 
 private:

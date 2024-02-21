@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:55:26 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/20 16:56:11 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/21 15:58:32 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,20 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
-#include <cstdlib> // Pour rand()
+#include <iostream>
+#include <cstdlib> // Pour std::rand() et std::srand()
+#include <ctime> // Pour std::time()
 
+// Assurez-vous d'avoir ces définitions quelque part, ou remplacez-les par vos propres codes de couleur.
+#define RESET	"\033[0m"
+#define GREEN	"\033[32m"
+#define CYAN	"\033[36m"
+#define RED		"\033[31m"
 class RobotomyRequestForm : public AForm
 {
+private:
+	std::string target;
+
 public:
 	RobotomyRequestForm(const std::string& target);
 	RobotomyRequestForm(const RobotomyRequestForm& other);
@@ -25,6 +35,7 @@ public:
 	virtual ~RobotomyRequestForm();
 
 	void execute(Bureaucrat const &executor) const override;
+	std::string getTarget() const override;
 };
 
 #endif

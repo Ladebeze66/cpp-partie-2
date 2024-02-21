@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 13:16:26 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/20 17:02:49 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/21 16:02:52 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,30 +80,30 @@ void Bureaucrat::decrementGrade()
 	++grade;
 }
 
-void Bureaucrat::signForm(Form& form)
+void Bureaucrat::signForm(AForm& form)
 {
 	try
 	{
 		form.beSigned(*this);
-		std::cout << this->name << " signed " << form.getName() << std::endl;
+		std::cout << this->name << " signed " << RED << form.getName() << BLUE  << " (" << form.getTarget() << ")" << RESET << std::endl;
 	}
 	catch (std::exception& e)
 	{
-		std::cout << this->name << " couldn’t sign " << form.getName() << " because " << e.what() << std::endl;
+		std::cout << this->name << " couldn’t sign " << RED << form.getName() << BLUE << " (" << form.getTarget() << ")" << RESET << " because " << e.what() << std::endl;
 	}
 }
 
 void Bureaucrat::executeForm(AForm const &form)
 {
-    try
+	try
 	{
-        form.execute(*this);
-        std::cout << name << " executed " << form.getName() << std::endl;
-    }
+		form.execute(*this);
+		std::cout << name << " executed " << RED << form.getName() << BLUE  << " (" << form.getTarget() << ")" << RESET << std::endl;
+	}
 	catch (std::exception& e)
 	{
-        std::cout << name << " couldn’t execute " << form.getName() << " because: " << e.what() << std::endl;
-    }
+		std::cout << name << " couldn’t execute " << RED << form.getName() << BLUE  << " (" << form.getTarget() << ")" << RESET << " because: " << e.what() << std::endl;
+	}
 }
 
 // Méthodes pour les exceptions
