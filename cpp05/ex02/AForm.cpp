@@ -6,18 +6,12 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 14:39:51 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/21 14:25:05 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/22 14:36:36 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
-
-AForm::AForm()
-	: name(name), isSigned(false), gradeRequiredToSign(1), gradeRequiredToExecute(1)
-{
-	std::cout << GREEN << "AForm default constructor called!" << RESET << std::endl;
-}
 
 AForm::AForm(const std::string &name, int gradeRequiredToSign, int gradeRequiredToExecute)
 	: name(name), isSigned(false), gradeRequiredToSign(gradeRequiredToSign), gradeRequiredToExecute(gradeRequiredToExecute)
@@ -84,20 +78,21 @@ void AForm::beSigned(const Bureaucrat& bureaucrat)
 	}
 }
 
-const char* AForm::GradeTooHighException::what() const noexcept
+const char* AForm::GradeTooHighException::what() const throw()
 {
-	return ("Grade too hight\n");
+	return ("Grade too high\n");
 }
 
-const char* AForm::GradeTooLowException::what() const noexcept
+const char* AForm::GradeTooLowException::what() const throw()
 {
 	return ("Grade too low\n");
 }
 
-const char* AForm::NotSignedException::what() const noexcept
+const char* AForm::NotSignedException::what() const throw()
 {
-	return ("The forpm is not signed.\n");
+	return ("The form is not signed.\n");
 }
+
 std::ostream& operator<<(std::ostream& os, const AForm& aform)
 {
 	os << "AForm: " << aform.getName()

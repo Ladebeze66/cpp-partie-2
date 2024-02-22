@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 14:37:14 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/16 18:26:09 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/22 12:48:27 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ private:
 
 public:
 	//constructueur
-	Form();
 	Form(const std::string &name, int gradeRequiredToSign, int gradeRequiredToExecute);
 	// Constructeur par copie
     Form(const Form& other);
@@ -49,13 +48,13 @@ public:
 	class GradeTooHighException : public std::exception
 	{
 		public:
-		const char* what() const noexcept override;
+		const char* what() const throw();
 	};
 
 	class GradeTooLowException : public std::exception
 	{
 		public:
-		const char* what() const noexcept override;
+		const char* what() const throw();
 	};
 };
 

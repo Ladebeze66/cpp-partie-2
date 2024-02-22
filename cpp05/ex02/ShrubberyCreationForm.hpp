@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:41:49 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/21 15:51:24 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/22 15:35:33 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
 #include <fstream>
 #include <iostream>
 
@@ -32,7 +33,7 @@ public:
 	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
 	virtual ~ShrubberyCreationForm();
 
-	void execute(Bureaucrat const &executor) const override;
+	void execute(Bureaucrat const &executor) const;
 	std::string getTarget() const;
 };
 

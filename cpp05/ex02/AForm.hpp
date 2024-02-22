@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 14:37:14 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/21 15:53:16 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/22 13:49:48 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ protected:
 
 public:
 	//constructueur
-	AForm();
 	AForm(const std::string &name, int gradeRequiredToSign, int gradeRequiredToExecute);
 	// Constructeur par copie
 	AForm(const AForm& other);
@@ -54,19 +53,19 @@ public:
 	class GradeTooHighException : public std::exception
 	{
 		public:
-			const char* what() const noexcept override;
+			virtual const char* what() const throw();
 	};
 
 	class GradeTooLowException : public std::exception
 	{
 		public:
-			const char* what() const noexcept override;
+			virtual const char* what() const throw();
 	};
 
 	class NotSignedException : public std::exception
 	{
 		public:
-			const char* what() const noexcept override;
+			virtual const char* what() const throw();
 	};
 };
 // Surcharge de l'opérateur d'insertion

@@ -6,18 +6,12 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 14:39:51 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/16 18:19:00 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/22 12:48:40 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
-
-Form::Form()
-	: name(name), isSigned(false), gradeRequiredToSign(1), gradeRequiredToExecute(1)
-{
-	std::cout << GREEN << "Form default constructor called!" << RESET << std::endl;
-}
 
 Form::Form(const std::string &name, int gradeRequiredToSign, int gradeRequiredToExecute)
 	: name(name), isSigned(false), gradeRequiredToSign(gradeRequiredToSign), gradeRequiredToExecute(gradeRequiredToExecute)
@@ -84,12 +78,12 @@ void Form::beSigned(const Bureaucrat& bureaucrat)
 	}
 }
 
-const char* Form::GradeTooHighException::what() const noexcept
+const char* Form::GradeTooHighException::what() const throw()
 {
 	return ("Grade too hight\n");
 }
 
-const char* Form::GradeTooLowException::what() const noexcept
+const char* Form::GradeTooLowException::what() const throw()
 {
 	return ("Grade too low\n");
 }

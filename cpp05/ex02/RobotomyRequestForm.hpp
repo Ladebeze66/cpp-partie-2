@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:55:26 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/21 15:58:32 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:10:22 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
 #include <iostream>
 #include <cstdlib> // Pour std::rand() et std::srand()
 #include <ctime> // Pour std::time()
@@ -33,9 +34,10 @@ public:
 	RobotomyRequestForm(const RobotomyRequestForm& other);
 	RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
 	virtual ~RobotomyRequestForm();
+	static void initializeRandomSeed();
 
-	void execute(Bureaucrat const &executor) const override;
-	std::string getTarget() const override;
+	void execute(Bureaucrat const &executor) const;
+	std::string getTarget() const;
 };
 
 #endif

@@ -6,15 +6,26 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:25:21 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/21 16:00:03 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:13:37 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
+void RobotomyRequestForm::initializeRandomSeed()
+{
+	static bool seeded = false;
+	if (!seeded)
+	{
+		std::srand(static_cast<unsigned int>(std::time(NULL))); // Utilisez NULL au lieu de nullptr
+		seeded = true;
+	}
+}
+
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
 	: AForm("RobotomyRequestForm", 72, 45), target(target)
 {
+	initializeRandomSeed();
 	std::cout << GREEN << "RobotomyRequestForm constructor called for target: " << target << RESET << std::endl;
 }
 
@@ -51,14 +62,15 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 	{
 		throw GradeTooLowException();
 	}
+	
 	std::cout << "Drilling noises... Zzzzzz..." << std::endl;
 	if (std::rand() % 2 == 0)
 	{
-		std::cout << target << " has been robotomized successfully." << std::endl;
+		std::cout << GREEN << target << " has been robotomized successfully." << RESET << std::endl;
 	}
 	else
 	{
-		std::cout << "The robotomy on " << target << " failed." << std::endl;
+		std::cout << RED << "The robotomy on " << target << " failed." << RESET << std::endl;
 	}
 }
 

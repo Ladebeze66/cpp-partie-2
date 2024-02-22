@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:54:52 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/21 15:39:36 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:33:23 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,33 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	// Vérification si le formulaire est signé et si le grade de l'exécuteur est suffisant
 	if (!getIsSigned())
 		throw NotSignedException(); // Assurez-vous que cette exception est correctement définie dans AForm
-	if (executor.getGrade() > getGradeRequiredToExecute())
+	else if (executor.getGrade() > this->getGradeRequiredToExecute())
 		throw GradeTooLowException();
-
-	std::ofstream ofs(target + "_shrubbery");
-	if (!ofs)
+	else
 	{
-		std::cerr << "Failed to create file " << target << "_shrubbery" << std::endl;
-		return ;
+		std::ofstream ofs((target + "_shrubbery").c_str());
+		if (!ofs)
+		{
+			std::cerr << "Failed to create file " << target << "_shrubbery" << std::endl;
+			return ;
+		}
+		ofs << "  .             🅻🅰🅳🅴🅱🅴🆉🅴    .       +" << "\n"
+	<<" .       .      .     #                  ." << "\n"
+	<<"    .      .         ###          .      ." << "\n"
+	<<"  .      .   .#:. .:##°##:. .:#.  .      ." << "\n"
+	<<"      .      .  ####°###°####            ." << "\n"
+	<<"   .      #:.    .:#.###.#:.    .:#  .   ." << "\n"
+	<<"             #########°#########      .  ." << "\n"
+	<<"    .     #:.   ####°###°####   .:#    . ." << "\n"
+	<<" .     .  °#######°°##°##°°#######°      ." << "\n"
+	<<"            .°##°#####°#####°##°  .      ." << "\n"
+	<<".    #:. ...  .:##°###°###°##:.  ... .:# ." << "\n"
+	<<"  .      #######°##°#####°##°####### .   ." << "\n"
+	<<".    .      #####°°#######°°#####     .  ." << "\n"
+	<<"        .            000           .     ." << "\n"
+	<<"   .         .   .   000     .        .  ." << "\n"
+	<<". ..................O000O................." << std::endl;
 	}
-	ofs << "ASCII trees" << std::endl;
 }
 
 std::string ShrubberyCreationForm::getTarget() const

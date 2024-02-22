@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 12:57:28 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/16 16:39:04 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/22 12:40:07 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ public:
 	class GradeTooHighException : public std::exception
 	{
 		public:
-			const char* what() const throw() override;
+			const char* what() const throw();
 	};
 
 	class GradeTooLowException : public std::exception
 	{
 		public:
-			const char* what() const throw() override;
+			const char* what() const throw();
 	};
 
 	Bureaucrat();

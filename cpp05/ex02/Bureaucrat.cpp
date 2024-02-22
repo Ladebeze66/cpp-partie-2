@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 13:16:26 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/21 16:02:52 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/22 15:24:37 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,14 +102,14 @@ void Bureaucrat::executeForm(AForm const &form)
 	}
 	catch (std::exception& e)
 	{
-		std::cout << name << " couldn’t execute " << RED << form.getName() << BLUE  << " (" << form.getTarget() << ")" << RESET << " because: " << e.what() << std::endl;
+		std::cerr << name << " couldn’t execute " << RED << form.getName() << BLUE  << " (" << form.getTarget() << ")" << RESET << " because: " << e.what() << std::endl;
 	}
 }
 
 // Méthodes pour les exceptions
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade too hight\n");
+	return ("Grade too high\n");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()

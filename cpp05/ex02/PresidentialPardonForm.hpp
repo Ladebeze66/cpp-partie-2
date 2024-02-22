@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:56:48 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/21 15:17:46 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/22 15:39:59 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define PRESIDENTIALPARDONFORM_HPP
 
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
 #include <iostream>
 
 #define RESET	"\033[0m"
@@ -32,7 +33,7 @@ public:
 	PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
 	virtual ~PresidentialPardonForm();
 
-	void execute(Bureaucrat const &executor) const override;
+	void execute(Bureaucrat const &executor) const;
 	std::string getTarget() const;
 };
 
