@@ -6,7 +6,7 @@
 #    By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/27 20:57:42 by fgras-ca          #+#    #+#              #
-#    Updated: 2024/02/25 19:53:36 by fgras-ca         ###   ########.fr        #
+#    Updated: 2024/02/25 20:04:45 by fgras-ca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CYAN			= \033[0;96m
 WHITE			= \033[0;97m
 ORANGE			= \033[38;5;214m
 
-NAME = ScalarConverter
+NAME = convert
 
 SRC =	ScalarConverter.cpp \
 		main.cpp \
@@ -41,7 +41,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	@echo "$(RED)Compilation fixed... $(DEF_COLOR)"
 	$(CC) $(CFLAGS) $(OBJS) -g -o $(NAME)
-	@echo "$(GREEN)Compilation complete. $(ORANGE)Type "./ScalarConverter" to execute the program!!$(DEF_COLOR)"
+	@echo "$(GREEN)Compilation complete. $(ORANGE)Type "./convert" to execute the program!!$(DEF_COLOR)"
 	$(LOGO)
 
 clean :
