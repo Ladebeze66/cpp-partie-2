@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 14:37:14 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/22 12:48:27 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:57:56 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,25 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 private:
 	const std::string name;
+	const
 	bool isSigned;
 	const int gradeRequiredToSign;
 	const int gradeRequiredToExecute;
 
 public:
 	//constructueur
-	Form(const std::string &name, int gradeRequiredToSign, int gradeRequiredToExecute);
+	AForm(const::std::string& name);
+	AForm(const std::string &name, int gradeRequiredToSign, int gradeRequiredToExecute);
 	// Constructeur par copie
-    Form(const Form& other);
+	AForm(const AForm& other);
 	// Opérateur d'affectation
-    Form& operator=(const Form& other);
+	AForm& operator=(const AForm& other);
 	// Destructeur
-    ~Form();
+	~AForm();
 
 
 	std::string getName() const;
@@ -48,17 +50,23 @@ public:
 	class GradeTooHighException : public std::exception
 	{
 		public:
-		const char* what() const throw();
+		const char* what() const noexcept override
+		{
+			return ("Grade too high");
+		}
 	};
 
 	class GradeTooLowException : public std::exception
 	{
 		public:
-		const char* what() const throw();
+		const char* what() const noexcept override
+		{
+			return ("Grade too low");
+		}
 	};
 };
 
 // Surcharge de l'opérateur d'insertion
-std::ostream& operator<<(std::ostream& os, const Form& form);
+std::ostream& operator<<(std::ostream& os, const AForm& form);
 
 #endif

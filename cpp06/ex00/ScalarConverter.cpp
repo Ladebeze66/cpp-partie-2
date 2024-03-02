@@ -6,21 +6,17 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 19:33:13 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/25 20:06:27 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:03:04 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
 ScalarConverter::ScalarConverter()
-{
-	std::cout << GREEN << "ScalarConverter default constructor called!" << RESET << std::endl;
-}
+{}
 
 ScalarConverter::ScalarConverter(const ScalarConverter&)
-{
-	std::cout << CYAN << "Copy constructor called for ScalarConverter." << RESET << std::endl;
-}
+{}
 
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter&)
 {
@@ -28,9 +24,7 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter&)
 }
 
 ScalarConverter::~ScalarConverter()
-{
-	std::cout << RED << "ScalarConverter is destroyed!" << RESET << std::endl;
-}
+{}
 
 char ScalarConverter::convertToChar(double num)
 {
@@ -60,31 +54,53 @@ double ScalarConverter::convertToDouble(const std::string& literal)
 
 void ScalarConverter::convert(const std::string& literal)
 {
-	double num = convertToDouble(literal);
-	try
+	// Traitement spécial si la chaîne représente un caractère unique
+	if (literal.length() == 1 && !isdigit(literal[0]))
 	{
-		char c = convertToChar(num);
+		char c = literal[0];	
 		printAsChar(c);
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << "char: " << e.what() << std::endl;
-	}
+		// Convertir directement le caractère en numérique pour les autres types
+		double num = static_cast<double>(c);
+		try
+		{
+			printAsInt(static_cast<int>(c));
+		}
+		catch (const std::exception& e)
+		{
+			std::cout << "int: " << e.what() << std::endl;
+		}
 
-	try
-	{
-		int i = convertToInt(num);
-		printAsInt(i);
+		printAsFloat(static_cast<float>(num));
+		printAsDouble(num);
 	}
-	catch (const std::exception& e)
+	else
 	{
-		std::cout << "int: " << e.what() << std::endl;
+		// L'approche originale pour les entrées considérées comme numériques
+		double num = convertToDouble(literal);
+		try
+		{
+			char c = convertToChar(num);
+			printAsChar(c);
+		}
+		catch (const std::exception& e)
+		{
+			std::cout << "char: " << e.what() << std::endl;
+		}
+
+		try
+		{
+			int i = convertToInt(num);
+			printAsInt(i);
+		}
+		catch (const std::exception& e)
+		{
+			std::cout << "int: " << e.what() << std::endl;
+		}
+
+		float f = convertToFloat(num);
+		printAsFloat(f);
+		printAsDouble(num);
 	}
-
-	float f = convertToFloat(num);
-	printAsFloat(f);
-
-	printAsDouble(num);
 }
 
 void ScalarConverter::printAsChar(char c)

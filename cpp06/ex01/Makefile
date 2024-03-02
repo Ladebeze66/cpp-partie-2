@@ -6,7 +6,7 @@
 #    By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/27 20:57:42 by fgras-ca          #+#    #+#              #
-#    Updated: 2024/02/26 14:35:12 by fgras-ca         ###   ########.fr        #
+#    Updated: 2024/02/26 16:28:12 by fgras-ca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,9 @@ CYAN			= \033[0;96m
 WHITE			= \033[0;97m
 ORANGE			= \033[38;5;214m
 
-NAME = Form
+NAME = serializer
 
-SRC =	Bureaucrat.cpp \
-		Form.cpp \
+SRC =	Serializer.cpp \
 		main.cpp \
 
 CC = c++
@@ -42,7 +41,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	@echo "$(RED)Compilation fixed... $(DEF_COLOR)"
 	$(CC) $(CFLAGS) $(OBJS) -g -o $(NAME)
-	@echo "$(GREEN)Compilation complete. $(ORANGE)Type "./Form" to execute the program!!$(DEF_COLOR)"
+	@echo "$(GREEN)Compilation complete. $(ORANGE)Type "./serializer" to execute the program!!$(DEF_COLOR)"
 	$(LOGO)
 
 clean :
