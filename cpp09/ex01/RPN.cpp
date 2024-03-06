@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:04:53 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/03/06 15:40:51 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/03/06 17:18:53 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,22 @@
 
 RPNCalculator::RPNCalculator()
 {
-	// Le constructeur par défaut reste inchangé.
+	std::cout << GREEN << "RPNCalculator default constructor called!" << RESET << std::endl;
 }
 
 RPNCalculator::~RPNCalculator()
 {
-	// Le destructeur reste inchangé.
+	std::cout << RED << "RPNCalculator is destroyed!" << RESET << std::endl;
 }
 
 RPNCalculator::RPNCalculator(const RPNCalculator& other) : stack(other.stack)
 {
-	// Le constructeur de copie reste inchangé.
+	std::cout << CYAN << "Copy constructor called for RPNCalculator." << RESET << std::endl;
 }
 
 RPNCalculator& RPNCalculator::operator=(const RPNCalculator& other)
 {
+	std::cout << YELLOW << "Copy assignment RPNCalculator operator called." << RESET << std::endl;
 	if (this != &other)
 	{
 		this->stack = other.stack;
@@ -76,7 +77,8 @@ void RPNCalculator::processToken(const std::string& token)
 	}
 	else
 	{
-		if (stack.size() < 2) throw std::runtime_error("Error: Not enough operands.");
+		if (stack.size() < 2)
+			throw std::runtime_error("Error: Not enough operands.");
 
 		float operand2 = stack.top(); stack.pop();
 		float operand1 = stack.top(); stack.pop();
@@ -86,7 +88,8 @@ void RPNCalculator::processToken(const std::string& token)
 			case '-': stack.push(operand1 - operand2); break;
 			case '*': stack.push(operand1 * operand2); break;
 			case '/':
-				if (operand2 == 0) throw std::runtime_error("Error: Division by zero.");
+				if (operand2 == 0)
+					throw std::runtime_error("Error: Division by zero.");
 				stack.push(operand1 / operand2);
 				break;
 			default: throw std::runtime_error("Error: Invalid operator.");
