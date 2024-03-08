@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:12:20 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/03/07 14:04:03 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/03/08 14:08:06 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void PmergeMe::fordJohnsonLikeSort(Container& container, typename Container::ite
 template<typename Container>
 void PmergeMe::displaySequence(const Container& sequence, const std::string& prefix)
 {
-	std::cout << prefix << ": ";
+	std::cout << RED << prefix << ": " << RESET;
 	for (typename Container::const_iterator it = sequence.begin(); it != sequence.end(); ++it)
 	{
 		std::cout << *it << " ";
@@ -80,18 +80,19 @@ void PmergeMe::displaySequence(const Container& sequence, const std::string& pre
 }
 // Mesure du temps de tri et affichage
 template<typename Container>
-void PmergeMe::measureAndSort(Container& container, const std::string& containerName) {
-    displaySequence(container, "Before");
+void PmergeMe::measureAndSort(Container& container, const std::string& containerName)
+{
+	displaySequence(container, "Before");
 
-    std::clock_t start = std::clock();
-    fordJohnsonLikeSort(container, container.begin(), container.end());
-    std::clock_t end = std::clock();
+	std::clock_t start = std::clock();
+	fordJohnsonLikeSort(container, container.begin(), container.end());
+	std::clock_t end = std::clock();
 
-    displaySequence(container, "After");
+	displaySequence(container, "After");
 
-    double duration = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000; // Convertir en microsecondes
-    std::cout << "Time to process a range of " << container.size()
-              << " elements with " << containerName << " : " << duration << " us\n";
+	double duration = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000; // Convertir en microsecondes
+	std::cout << CYAN << "Time to process a range of " << container.size()
+			  << " elements with " << containerName << " : " << duration << " us\n" << RESET;
 }
 // Spécialisations explicites pour std::vector<int> et std::list<int>
 template void PmergeMe::fordJohnsonLikeSort<std::vector<int> >(std::vector<int>&, std::vector<int>::iterator, std::vector<int>::iterator);
