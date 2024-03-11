@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:55:26 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/22 16:10:22 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:06:32 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ private:
 	std::string target;
 
 public:
+	RobotomyRequestForm();
 	RobotomyRequestForm(const std::string& target);
 	RobotomyRequestForm(const RobotomyRequestForm& other);
 	RobotomyRequestForm& operator=(const RobotomyRequestForm& other);

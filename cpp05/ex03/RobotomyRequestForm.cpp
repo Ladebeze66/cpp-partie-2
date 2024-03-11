@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:25:21 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/25 13:15:16 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:03:42 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ void RobotomyRequestForm::initializeRandomSeed()
 		std::srand(static_cast<unsigned int>(std::time(NULL))); // Utilisez NULL au lieu de nullptr
 		seeded = true;
 	}
+}
+
+RobotomyRequestForm::RobotomyRequestForm()
+{
+	std::cout << GREEN << "RobotomyRequestForm default constructor called!" << RESET << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target)

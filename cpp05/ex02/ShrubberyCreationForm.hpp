@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:41:49 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/22 15:35:33 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:09:14 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ private:
 	std::string target;
 
 public:
+	ShrubberyCreationForm();
 	ShrubberyCreationForm(const std::string& target);
 	ShrubberyCreationForm(const ShrubberyCreationForm& other);
 	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);

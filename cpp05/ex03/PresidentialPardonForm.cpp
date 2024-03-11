@@ -6,11 +6,16 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:31:13 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/25 13:29:09 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:15:01 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
+
+PresidentialPardonForm::PresidentialPardonForm()
+{
+	std::cout << GREEN << "PresidentialPardonForm default constructor called!" << RESET << std::endl;
+}
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
 	: AForm("PresidentialPardonForm", 25, 5), target(target)

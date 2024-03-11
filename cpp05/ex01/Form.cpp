@@ -6,12 +6,17 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 14:39:51 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/22 12:48:40 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/03/11 14:47:49 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+
+Form::Form() : name("default"), isSigned(false), gradeRequiredToSign(150), gradeRequiredToExecute(150)
+{
+	std::cout << GREEN << "Form default constructor called!" << RESET << std::endl; 
+}
 
 Form::Form(const std::string &name, int gradeRequiredToSign, int gradeRequiredToExecute)
 	: name(name), isSigned(false), gradeRequiredToSign(gradeRequiredToSign), gradeRequiredToExecute(gradeRequiredToExecute)
@@ -24,6 +29,7 @@ Form::Form(const std::string &name, int gradeRequiredToSign, int gradeRequiredTo
 	{
 		throw GradeTooLowException();
 	}
+	std::cout << GREEN << "Form" << this->name << "constructor called with grade to sign: " << this->gradeRequiredToSign << " and grade to execute: " << this->gradeRequiredToExecute << RESET << std::endl; 
 }
 
 Form::Form(const Form& other)

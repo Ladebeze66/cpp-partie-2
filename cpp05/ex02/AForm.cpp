@@ -6,12 +6,17 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 14:39:51 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/03/02 20:36:08 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/03/11 14:52:36 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+
+AForm::AForm() : name("default"), isSigned(false), gradeRequiredToSign(150), gradeRequiredToExecute(150)
+{
+	std::cout << GREEN << "AForm default constructor called!" << RESET << std::endl; 
+}
 
 AForm::AForm(const std::string &name, int gradeRequiredToSign, int gradeRequiredToExecute)
 	: name(name), isSigned(false), gradeRequiredToSign(gradeRequiredToSign), gradeRequiredToExecute(gradeRequiredToExecute)
@@ -24,6 +29,7 @@ AForm::AForm(const std::string &name, int gradeRequiredToSign, int gradeRequired
 	{
 		throw GradeTooLowException();
 	}
+	std::cout << GREEN << "AForm" << this->name << "constructor called with grade to sign: " << this->gradeRequiredToSign << " and grade to execute: " << this->gradeRequiredToExecute << RESET << std::endl;
 }
 
 AForm::AForm(const AForm& other)

@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:56:48 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/22 15:39:59 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:07:10 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ private:
 	std::string target;
 
 public:
+	PresidentialPardonForm();
 	PresidentialPardonForm(const std::string& target);
 	PresidentialPardonForm(const PresidentialPardonForm& other);
 	PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
