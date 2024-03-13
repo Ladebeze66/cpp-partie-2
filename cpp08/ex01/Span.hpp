@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:53:40 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/03/03 16:49:04 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/03/13 13:17:35 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 class Span
 {
 public:
+	Span();
 	Span(unsigned int N);				//constructor
 	Span(const Span& other);			//copy constructor
 	Span& operator=(const Span& other);	//operateur d'assignation

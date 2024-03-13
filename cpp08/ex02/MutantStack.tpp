@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:23:49 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/03/03 18:37:30 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/03/13 13:49:40 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 template<typename T, typename Container>
 MutantStack<T, Container>::MutantStack() : std::stack<T, Container>()
 {
-	std::cout << "MutantStack constructor called!" << std::endl;
+	std::cout << GREEN << "MutantStack constructor called!" << RESET << std::endl;
 }
 // Constructeur de copie
 template<typename T, typename Container>
 MutantStack<T, Container>::MutantStack(const MutantStack& other) : std::stack<T, Container>(other)
 {
-	std::cout << "Copy constructor called for MutantStack." << std::endl;
+	std::cout << CYAN << "Copy constructor called for MutantStack." << RESET << std::endl;
 }
 // Destructeur
 template<typename T, typename Container>
 MutantStack<T, Container>::~MutantStack()
 {
-	std::cout << "MutantStack is destroyed!" << std::endl;
+	std::cout << RED << "MutantStack is destroyed!" << RESET << std::endl;
 }
 // Opérateur d'assignation
 template<typename T, typename Container>

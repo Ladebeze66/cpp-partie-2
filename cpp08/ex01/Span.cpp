@@ -6,11 +6,16 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 16:20:25 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/03/03 18:28:26 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/03/13 13:19:00 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+
+Span::Span()
+{
+	std::cout << GREEN << "Default constructor Span called!" << RESET << std::endl;
+} 
 
 Span::Span(unsigned int N): capacity(N)
 {

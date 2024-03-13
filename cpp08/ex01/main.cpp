@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 17:00:49 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/03/03 17:59:58 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/03/13 13:28:38 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int main()
 	std::set<int> uniqueNumbers;
 	while(uniqueNumbers.size() < N)
 	{
-		int number = std::rand() % 100000; // Générer un nombre aléatoire entre 0 et 999
+		int number = std::rand() % 100000; // Générer un nombre aléatoire entre 0 et 99999
 		if(uniqueNumbers.insert(number).second)
 		{ // Vérifie si l'insertion est réussie (élément n'était pas déjà présent)
 			userSpan.addNumber(number);
