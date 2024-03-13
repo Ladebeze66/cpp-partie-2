@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 14:44:31 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/02/27 15:14:37 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/03/11 17:20:25 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ int main()
 	identify(b);
 
 	std::cout << MAGENTA << "Identify C by reference: " << RESET;
-	identify(c);
+	identify(&c);
 	return (0);
 }
