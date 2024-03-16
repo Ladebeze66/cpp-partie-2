@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:13:10 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/03/06 17:18:59 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/03/16 15:02:24 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ int main()
 	RPNCalculator calculator;
 
 	std::cout << ORANGE << "Enter RPN expressions (or 'exit' to quit):" << RESET << std::endl;
-	
+
 	std::string expression;
 	while (true)
 	{
 		std::cout << "> ";
 		std::getline(std::cin, expression);
-		
+
 		if (expression == "exit")
 		{
 			break; // Sortir de la boucle si l'utilisateur entre 'exit'
@@ -31,12 +31,12 @@ int main()
 
 		try
 		{
-			float result = calculator.evaluateExpression(expression);
+			int result = calculator.evaluateExpression(expression);
 			std::cout << GREEN << "Result: " << RESET << result << std::endl;
 		}
 		catch (const std::exception& e)
 		{
-			std::cout << RED << "Error: " << e.what() << RESET << std::endl;
+			std::cout << RED << e.what() << RESET << std::endl;
 		}
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 14:09:27 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/03/04 17:31:07 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/03/16 13:37:43 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ int main(int argc, char **argv)
 		std::cerr << RED << "Error: could not open " << RESET << inputFile << std::endl;
 		exit(1);
 	}
+
+	// Ignorer la première ligne
+	std::string header;
+	getline(input, header);
+
 	BitcoinExchange exchange;
 	std::string priceDataFile = "data.csv";
 	if (!exchange.loadPriceData(priceDataFile))
@@ -43,9 +48,14 @@ int main(int argc, char **argv)
 		if (exchange.parseLine(line, date, amount))
 		{
 			// Vérifie que la valeur est dans la plage [0, 1000]
-			if (amount < 0 || amount > 1000)
+			if (amount < 0)
 			{
-				std::cout << RED << "Error: Value out of range [0, 1000]." << RESET << std::endl;
+				std::cout << RED << "Error: not a positive number." << RESET << std::endl;
+				continue; // Passe à la ligne suivante si la valeur est hors plage
+			}
+			else if (amount > 1000)
+			{
+				std::cout << RED << "Error: too large a number." << RESET << std::endl;
 				continue; // Passe à la ligne suivante si la valeur est hors plage
 			}
 			// Calcule la valeur d'échange du Bitcoin pour la date et le montant donnés
@@ -66,5 +76,3 @@ int main(int argc, char **argv)
 	}
 	return (0);
 }
-
-

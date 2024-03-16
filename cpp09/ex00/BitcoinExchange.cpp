@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 14:56:17 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/03/04 16:52:42 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/03/16 13:28:08 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ bool BitcoinExchange::loadPriceData(const std::string& filename)
 		std::cerr << "Error: could not open price data file." << std::endl;
 		return false;
 	}
-	
+
 	std::string line;
 	// Ignorer la première ligne (en-têtes)
 	std::getline(file, line);
@@ -64,10 +64,10 @@ bool BitcoinExchange::loadPriceData(const std::string& filename)
 			std::cerr << "Warning: Malformed line skipped -> " << line << std::endl;
 		}
 	}
-	
+
 	file.close();
 	// Optionnel: afficher les données chargées pour vérification
-	
+
 	/*for (std::map<std::string, float>::const_iterator it = dataBase.begin(); it != dataBase.end(); ++it)
 	{
 		std::cout << "Date: " << it->first << ", Exchange Rate: " << it->second << std::endl;
@@ -80,7 +80,7 @@ bool BitcoinExchange::parseLine(const std::string& line, std::string& date, floa
 	std::istringstream iss(line);
 	std::string valueStr;
 	std::getline(iss, date, '|'); // Extrait la date jusqu'au délimiteur '|'.
-	
+
 	// Supprime les espaces en début et en fin de 'date'.
 	date.erase(0, date.find_first_not_of(" \t"));
 	date.erase(date.find_last_not_of(" \t") + 1);
@@ -93,7 +93,7 @@ bool BitcoinExchange::parseLine(const std::string& line, std::string& date, floa
 	{ // Vérifie la conversion et s'assure qu'il n'y a pas de caractères supplémentaires.
 		return (false);
 	}
-	
+
 	return (true);
 }
 //Calcule la valeur d'échange du Bitcoin pour un montant donné à une date spécifique

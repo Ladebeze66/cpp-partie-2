@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:49:08 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/03/06 17:18:55 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/03/16 15:52:43 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 #include <stack>
 #include <string>
-#include <sstream>
+#include <sstream> // Pour std::istringstream
 #include <iostream>
-#include <stdexcept>
-#include <cmath>
+#include <stdexcept> // Pour std::runtime_error
+#include <cmath> // Pour std::floor et std::abs
 
 #define RESET	"\033[0m"
 #define BLACK	"\033[30m"
@@ -39,10 +39,10 @@ public:
 	RPNCalculator(const RPNCalculator& other);
 	RPNCalculator& operator=(const RPNCalculator& other);
 
-	float evaluateExpression(const std::string& expression);
+	int evaluateExpression(const std::string& expression);
 
 private:
-	std::stack<float> stack;
+	std::stack<int> stack;
 	void processToken(const std::string& token);
 };
 

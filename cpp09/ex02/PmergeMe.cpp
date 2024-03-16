@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:12:20 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/03/08 14:08:06 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/03/16 16:28:26 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,4 @@ template void PmergeMe::displaySequence<std::vector<int> >(const std::vector<int
 template void PmergeMe::displaySequence<std::list<int> >(const std::list<int>&, const std::string&);
 
 template void PmergeMe::measureAndSort<std::vector<int> >(std::vector<int>&, const std::string&);
-
-// Spécialisation explicite pour std::list<int>
 template void PmergeMe::measureAndSort<std::list<int> >(std::list<int>&, const std::string&);

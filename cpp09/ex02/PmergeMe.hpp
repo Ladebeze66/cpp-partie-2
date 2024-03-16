@@ -6,7 +6,7 @@
 /*   By: fgras-ca <fgras-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 16:17:28 by fgras-ca          #+#    #+#             */
-/*   Updated: 2024/03/07 14:00:07 by fgras-ca         ###   ########.fr       */
+/*   Updated: 2024/03/16 17:07:11 by fgras-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 #include <algorithm> // Pour les conteneurs supportant le tri direct
 #include <iterator>  // Pour std::distance et std::advance
 #include <cstdlib> // Pour std::atoi
+#include <climits>
+#include <cerrno>
 
 #define RESET	"\033[0m"
 #define BLACK	"\033[30m"
